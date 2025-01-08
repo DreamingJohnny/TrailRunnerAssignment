@@ -6,6 +6,11 @@ public class UserInfo {
 	private float length;
 	private float weight;
 	private int age;
+	
+	public float getFitnessScore() {
+
+		return -1;
+	}
 
 	/*public float getLength() {
 		return length;		
@@ -42,9 +47,5 @@ public class UserInfo {
 	{
 		//value=cs+(d+v/p)-t/2, return value
 		return 0;
-	}*/
-	//TODO: Add getter for returning fitnessScore.
-
-	//TODO: Add methods for getting the other stats
-	
+	}*/	
 }
