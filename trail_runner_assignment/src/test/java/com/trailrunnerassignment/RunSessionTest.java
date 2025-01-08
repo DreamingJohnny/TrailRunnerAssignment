@@ -10,6 +10,7 @@ public class RunSessionTest {
 
 	private RunSession runSession;
 
+	//TODO: These really needs to be remade to be in better formats.
 	private float distance;
 	private float time;
 	private float date;
@@ -26,6 +27,8 @@ public class RunSessionTest {
 		assertEquals(time, runSession.getTime());
 
 		assertEquals(date, runSession.getDate());
+
+		//TODO: Check so it has the correct userId here also.
 	}
 
 	@Test
