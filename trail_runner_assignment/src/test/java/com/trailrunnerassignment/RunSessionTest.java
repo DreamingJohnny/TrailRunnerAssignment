@@ -1,15 +1,51 @@
 package com.trailrunnerassignment;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class RunSessionTest {
-	/*
-	 * Går det att skapa en run session?
-	 * Har den en distans?
-	 * Har den en tid?
-	 * Går det att få datum?
-	 * Går det att få ett identifikationsnummer?
-	 * Går det att få snitthastighet i kilometer per timme?
-	 * Går det att få hastigheten i minuter per kilometer?
-	 * Om inget datum angetts, går det fortfarande att skapa ett object?
-	 * Om inget datum angetts, går det att få todays date?
-	 */
+
+	private RunSession runSession;
+
+	private float distance;
+	private float time;
+	private float date;
+
+	@BeforeEach
+	public void setup() {
+		runSession = new RunSession(distance,time,date);
+	}
+
+	@Test
+	public void hasCorrectInfo() {
+		assertEquals(distance, runSession.getDistance());
+
+		assertEquals(time, runSession.getTime());
+
+		assertEquals(date, runSession.getDate());
+	}
+
+	@Test
+	public void hasCorrectAverageSpeedPerHour() {
+		int expectedValue = 10;
+		assertEquals(expectedValue, runSession.getAverageSpeedPerHour());
+	}
+
+	@Test
+	public void hasCorrectMinutesPerKilometer() {
+		int expectedValue = 10;
+		assertEquals(expectedValue, runSession.getMinutesPerKilometer());
+	}
+
+	@Test
+	public void shouldSetTodaysDate() {
+		runSession = new RunSession(distance,time);
+
+		assertTrue(runSession!=null);
+
+		assertEquals(todaysDate, runSession.getDate());
+	}
 }
