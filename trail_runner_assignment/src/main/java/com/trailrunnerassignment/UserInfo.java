@@ -1,13 +1,13 @@
 package com.trailrunnerassignment;
 
-public class User {
+public class UserInfo {
 	
 	//TODO: All of these variables will need getters and setters
 	private float length;
 	private float weight;
 	private int age;
 
-	public User() {
+	public UserInfo() {
 
 	}
 

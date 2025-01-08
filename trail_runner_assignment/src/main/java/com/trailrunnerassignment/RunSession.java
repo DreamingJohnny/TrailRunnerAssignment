@@ -12,6 +12,9 @@ public class RunSession {
 	private float date;
 	// TODO: All of these will need getters and setters.
 
+	//TODO: This needs to be unique in some way.
+	private String id;
+
 	// TODO: Will need at least two constructors, one for if you don't supply the
 	// date
 	public RunSession() {
