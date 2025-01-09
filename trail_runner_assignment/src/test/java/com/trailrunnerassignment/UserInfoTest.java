@@ -16,7 +16,7 @@ public class UserInfoTest {
 	public RunSession runSession;
 	
 	private float distance;
-	private float time;
+	private int time;
 	private String date;
 	private String id;
 

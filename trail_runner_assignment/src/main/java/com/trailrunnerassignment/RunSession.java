@@ -1,5 +1,6 @@
 package com.trailrunnerassignment;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -9,7 +10,7 @@ public class RunSession {
 	private float distance;
 	// TODO: This should probably be replaced with some var that handles amount of
 	// time.
-	private float time;
+	private Duration time;
 	// TODO: This needs to be changed to be a var for handling dates, pretty sure
 	// there is one of those already.
 	private String date;
@@ -28,12 +29,16 @@ public class RunSession {
 		this.distance = distance;
 	}
 
-	public float getTime() {
-		return time;
+	public String getTime() {
+
+		return String.format("%d:%02d:%02d",
+				time.toHours(),
+				time.toMinutesPart(),
+				time.toSecondsPart());
 	}
 
-	public void setTime(float time) {
-		this.time = time;
+	public void setTime(int _time) {
+		this.time = Duration.ofSeconds(_time);
 	}
 
 	public String getDate() {
@@ -52,33 +57,43 @@ public class RunSession {
 		this.id = id;
 	}
 
-	public RunSession(String date, float distance, String id, float time) {
+	public RunSession(String date, float distance, String id, int time) {
 		this.date = date;
 		this.distance = distance;
 		this.id = id;
-		this.time = time;
+		this.time = Duration.ofSeconds(time);
 	}
 
-	public RunSession(float distance, String id, float time) {
+	public RunSession(float distance, String id, int time) {
 		LocalDate tempDate = LocalDate.now();
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		this.date = tempDate.format(myFormatObj);
 
 		this.distance = distance;
 		this.id = id;
-		this.time = time;
+		this.time = Duration.ofSeconds(time);
 	}
 
-	public float getAverageSpeedPerHour() {
-		return -1;
+	public String getAverageSpeedPerHour() {
+
+		double hours = time.toSeconds() / 3600.0;
+
+		double temp = distance / hours;
+
+		String answer = String.format("%.2f", temp);
+		return answer;
 	}
 
-	public float getMinutesPerKilometer() {
-		return -1;
+	public String getMinutesPerKilometer() {
+		double minutes = time.toSeconds() / 60.0;
+
+		double temp = minutes / distance;
+
+		String answer = String.format("%.2f", temp);
+		return answer;
 	}
 
 	public float todaysDate() {
 		return -1;
 	}
-
 }
