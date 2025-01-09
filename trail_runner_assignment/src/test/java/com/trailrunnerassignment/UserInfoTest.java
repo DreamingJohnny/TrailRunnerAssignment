@@ -12,13 +12,13 @@ public class UserInfoTest {
 	private float length;
 	private float weight;
 	private int age;
-	private String id;
-
+	
 	public RunSession runSession;
-
+	
 	private float distance;
 	private float time;
-	private float date;
+	private String date;
+	private String id;
 
 	private float expectedValue;
 

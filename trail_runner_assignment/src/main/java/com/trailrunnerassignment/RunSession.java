@@ -1,5 +1,8 @@
 package com.trailrunnerassignment;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class RunSession {
 	// TODO: This probably needs a constructor for converting meters and such back
 	// and forth
@@ -9,18 +12,15 @@ public class RunSession {
 	private float time;
 	// TODO: This needs to be changed to be a var for handling dates, pretty sure
 	// there is one of those already.
-	private float date;
-	// TODO: All of these will need getters and setters.
+	private String date;
 
-	//TODO: This needs to be unique in some way.
+	// TODO: This needs to be unique in some way.
 	private String id;
 
 	// TODO: Will need at least two constructors, one for if you don't supply the
 	// date
-	
-	//TODO: Add methods below for getting the various stats
 
-    public float getDistance() {
+	public float getDistance() {
 		return distance;
 	}
 
@@ -36,11 +36,11 @@ public class RunSession {
 		this.time = time;
 	}
 
-	public float getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(float date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -52,32 +52,32 @@ public class RunSession {
 		this.id = id;
 	}
 
-	public RunSession(float date, float distance, String id, float time) {
-        this.date = -1;
-        this.distance = -1;
-        this.id =null;
-        this.time = -1;
-    }
+	public RunSession(String date, float distance, String id, float time) {
+		this.date = date;
+		this.distance = distance;
+		this.id = id;
+		this.time = time;
+	}
 
 	public RunSession(float distance, String id, float time) {
-        this.date = -1;
-        this.distance = -1;
-        this.id =null;
-        this.time = -1;
-    }
+		LocalDate tempDate = LocalDate.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		this.date = tempDate.format(myFormatObj);
 
-	public float getAverageSpeedPerHour()
-	{
-		return-1;
-	}
-	
-	public float getMinutesPerKilometer()
-	{
-		return-1;
+		this.distance = distance;
+		this.id = id;
+		this.time = time;
 	}
 
-	public float todaysDate()
-	{
+	public float getAverageSpeedPerHour() {
+		return -1;
+	}
+
+	public float getMinutesPerKilometer() {
+		return -1;
+	}
+
+	public float todaysDate() {
 		return -1;
 	}
 

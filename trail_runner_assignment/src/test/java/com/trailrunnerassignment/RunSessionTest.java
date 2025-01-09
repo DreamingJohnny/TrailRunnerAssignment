@@ -12,7 +12,7 @@ public class RunSessionTest {
 	//TODO: These really needs to be remade to be in better formats.
 	private float distance;
 	private float time;
-	private float date;
+	private String date;
 	private String id;
 	private float todaysDate;
 
