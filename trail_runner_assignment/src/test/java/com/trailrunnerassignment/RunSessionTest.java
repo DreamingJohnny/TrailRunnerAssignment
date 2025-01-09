@@ -2,7 +2,6 @@ package com.trailrunnerassignment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +13,14 @@ public class RunSessionTest {
 	private float distance;
 	private float time;
 	private float date;
+	private String id;
+	private float todaysDate;
 
 	@BeforeEach
 	public void setup() {
-		runSession = new RunSession(distance,time,date);
+		runSession = new RunSession(date,distance,id,time);
 	}
-
+	
 	@Test
 	public void hasCorrectInfo() {
 		assertEquals(distance, runSession.getDistance());
@@ -45,7 +46,7 @@ public class RunSessionTest {
 
 	@Test
 	public void shouldSetTodaysDate() {
-		runSession = new RunSession(distance,time);
+		runSession = new RunSession(distance,id,time);
 
 		assertTrue(runSession!=null);
 

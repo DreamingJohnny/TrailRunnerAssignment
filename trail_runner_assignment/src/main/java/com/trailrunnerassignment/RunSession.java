@@ -17,9 +17,68 @@ public class RunSession {
 
 	// TODO: Will need at least two constructors, one for if you don't supply the
 	// date
-	public RunSession() {
+	
+	//TODO: Add methods below for getting the various stats
 
+    public float getDistance() {
+		return distance;
 	}
 
-	//TODO: Add methods below for getting the various stats
+	public void setDistance(float distance) {
+		this.distance = distance;
+	}
+
+	public float getTime() {
+		return time;
+	}
+
+	public void setTime(float time) {
+		this.time = time;
+	}
+
+	public float getDate() {
+		return date;
+	}
+
+	public void setDate(float date) {
+		this.date = date;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public RunSession(float date, float distance, String id, float time) {
+        this.date = -1;
+        this.distance = -1;
+        this.id =null;
+        this.time = -1;
+    }
+
+	public RunSession(float distance, String id, float time) {
+        this.date = -1;
+        this.distance = -1;
+        this.id =null;
+        this.time = -1;
+    }
+
+	public float getAverageSpeedPerHour()
+	{
+		return-1;
+	}
+	
+	public float getMinutesPerKilometer()
+	{
+		return-1;
+	}
+
+	public float todaysDate()
+	{
+		return -1;
+	}
+
 }

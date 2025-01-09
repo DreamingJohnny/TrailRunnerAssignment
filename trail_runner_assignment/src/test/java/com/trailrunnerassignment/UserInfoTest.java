@@ -1,9 +1,7 @@
 package com.trailrunnerassignment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +11,8 @@ public class UserInfoTest {
 
 	private float length;
 	private float weight;
-	private float age;
+	private int age;
+	private String id;
 
 	public RunSession runSession;
 
@@ -30,7 +29,7 @@ public class UserInfoTest {
 	public void setup() {
 		userInfo = new UserInfo(length, weight, age);
 
-		assertTrue(userInfo != null);
+		assertEquals(age,userInfo.getAge());
 	}
 
 	/* Går det att få ut ett korrekt fitness score? */
@@ -79,8 +78,8 @@ public class UserInfoTest {
 
 		// So, here I'll want to begin by sending in a run with a date then, and then
 		// check so that it sets it correctly then
-		userInfo.addRunSession(new RunSession(distance, time, date));
-
+		userInfo.addRunSession(new RunSession(date,distance,id,time));
+		
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
 }
