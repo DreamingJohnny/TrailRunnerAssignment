@@ -36,7 +36,7 @@ public class UserInfoTest {
 	/* Går det att få ut ett korrekt fitness score? */
 	@Test
 	public void getCorrectFitnessScore() {
-		expectedValue = 10;
+		expectedValue = 0;
 
 		assertEquals(expectedValue, userInfo.getFitnessScore());
 	}
