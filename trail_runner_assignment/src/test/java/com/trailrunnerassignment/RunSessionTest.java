@@ -1,5 +1,8 @@
 package com.trailrunnerassignment;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +17,8 @@ public class RunSessionTest {
 	private int time = 3600;
 	private String date;
 	private String id;
-	private float todaysDate;
+	private String todaysDate;
+	private String expectedTime = "1:00:00";
 
 	@BeforeEach
 	public void setup() {
@@ -25,7 +29,7 @@ public class RunSessionTest {
 	public void hasCorrectInfo() {
 		assertEquals(distance, runSession.getDistance());
 
-		assertEquals(time, runSession.getTime());
+		assertEquals(expectedTime, runSession.getTime());
 
 		assertEquals(date, runSession.getDate());
 
@@ -34,19 +38,22 @@ public class RunSessionTest {
 
 	@Test
 	public void hasCorrectAverageSpeedPerHour() {
-		String expectedValue = "10.00";
+		String expectedValue = "10,00";
 		assertEquals(expectedValue, runSession.getAverageSpeedPerHour());
 	}
 
 	@Test
 	public void hasCorrectMinutesPerKilometer() {
-		String expectedValue = "6.00";
+		String expectedValue = "6,00";
 		assertEquals(expectedValue, runSession.getMinutesPerKilometer());
 	}
 
 	@Test
 	public void shouldSetTodaysDate() {
 		runSession = new RunSession(distance, id, time);
+		LocalDate tempDate = LocalDate.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		todaysDate = tempDate.format(myFormatObj);
 
 		assertTrue(runSession != null);
 

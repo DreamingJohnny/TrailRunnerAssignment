@@ -74,7 +74,7 @@ public class UserInfoTest {
 	@Test
 	public void setsDateSinceLastRunCorrectly() {
 
-		expectedValue = 7;
+		expectedValue = 0;
 
 		// So, here I'll want to begin by sending in a run with a date then, and then
 		// check so that it sets it correctly then

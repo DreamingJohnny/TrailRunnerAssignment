@@ -62,6 +62,7 @@ public class RunSession {
 		this.distance = distance;
 		this.id = id;
 		this.time = Duration.ofSeconds(time);
+		
 	}
 
 	public RunSession(float distance, String id, int time) {
@@ -94,6 +95,6 @@ public class RunSession {
 	}
 
 	public float todaysDate() {
-		return -1;
+		return 0.0f;
 	}
 }

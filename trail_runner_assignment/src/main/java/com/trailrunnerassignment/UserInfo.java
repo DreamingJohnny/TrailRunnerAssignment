@@ -35,24 +35,24 @@ public class UserInfo {
 
 	public UserInfo(float length, float weight, int age)
 	{
-		this.length=-1;
-		this.weight=-1;
-		this.age=-1;
+		this.length=length;
+		this.weight=weight;
+		this.age=age;
 		runList = new ArrayList<>();
 	}
 
 	public float getFitnessScore() {
-		return -1;
+		return 0;
 	}
 
 	public int getRunSessionsAmount()
 	{
-		return -1;
+		return 0;
 	}
 
 	public int daysSinceLastRun()
 	{
-		return -1;
+		return 0;
 	}
 
 	public void addRunSession(RunSession firstRun)
