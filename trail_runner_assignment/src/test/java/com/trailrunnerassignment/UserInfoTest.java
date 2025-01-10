@@ -1,5 +1,8 @@
 package com.trailrunnerassignment;
 
+import java.time.Duration;
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,20 +10,23 @@ import org.junit.jupiter.api.Test;
 
 public class UserInfoTest {
 
+	// Standin values for testUserInfo
 	public UserInfo userInfo;
-
 	private float length;
 	private float weight;
+
 	private int age = 30;
 	private String id;
 
+	// Standin values for testRunSession
 	public RunSession runSession;
-
 	private float distance;
-	private float time;
-	private float date;
+	private Duration time;
+	private LocalDate date;
+	private String id;
 
 	private float expectedValue;
+	private String expectedAnswer;
 
 	/*
 	 * Går det att skapa en användare med korrekt uppgifter?
@@ -32,31 +38,15 @@ public class UserInfoTest {
 		assertEquals(age, userInfo.getAge());
 	}
 
-	/* Går det att få ut ett korrekt fitness score? */
-	@Test
-	public void getCorrectFitnessScore() {
-		expectedValue = 0;
-
-		assertEquals(expectedValue, userInfo.getFitnessScore());
-	}
-
-	/* Kan fitness score vara lägre än noll? */
-	@Test
-	public void fitnessScoreNeverBelowZero() {
-		expectedValue = 0;
-
-		assertEquals(expectedValue, userInfo.getFitnessScore());
-	}
-
 	/* Innan första löprundan är fitness score noll? */
 	@Test
 	public void fitnessScoreZeroAtStart() {
-		expectedValue = 0;
+		expectedAnswer = "0.00";
 
 		assumeTrue(userInfo.getRunSessionsAmount() == 0,
 				"Test cannot run if the user has one or more running sessions logged already.");
 
-		assertEquals(expectedValue, userInfo.getFitnessScore());
+		assertEquals(expectedAnswer, userInfo.getFitnessScore());
 	}
 
 	/* Innan första löprundan, är dagar sen senaste löpturen noll? */
@@ -74,7 +64,45 @@ public class UserInfoTest {
 	@Test
 	public void setsDateSinceLastRunCorrectly() {
 
-		expectedValue = 7;
+		expectedValue = 4;
+
+		// TODO: Look @ moving these rounds to separate function or script, similar to
+		// parameterized.
+		userInfo.addRunSession(new RunSession(LocalDate.of(2024, 12, 28), 7, id, 4500));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 1), 6, id, 4400));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 3), 7, id, 4700));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 6), 8, id, 4500));
+
+		// TODO: If time, would like to test this test several times to see if it really
+		// works.
+		assertEquals(expectedValue, userInfo.daysSinceLastRun());
+	}
+
+	// I moved these tests to last since it seemed to be quite complicated, and also
+	// dependant on functions that several of the other tests are already made to
+	// check.
+	/* Går det att få ut ett korrekt fitness score? */
+	@Test
+	public void getCorrectFitnessScore() {
+
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
+
+		String expectedString = "10.67";
+
+		assertEquals(expectedString, userInfo.getFitnessScore());
+	}
+
+	/* Kan fitness score vara lägre än noll? */
+	@Test
+	public void fitnessScoreNeverBelowZero() {
+		expectedAnswer = "0.00";
+
+		userInfo.addRunSession(new RunSession(LocalDate.of(2023, 1, 8), 10, id, 3600));
+
+		assertEquals(expectedAnswer, userInfo.getFitnessScore());
+	}
+
+}
 
 		// So, here I'll want to begin by sending in a run with a date then, and then
 		// check so that it sets it correctly then
