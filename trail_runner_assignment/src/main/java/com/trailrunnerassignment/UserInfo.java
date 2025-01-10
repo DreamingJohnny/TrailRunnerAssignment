@@ -1,5 +1,6 @@
 package com.trailrunnerassignment;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ public class UserInfo {
 	private float weight;
 	private int age;
 	private ArrayList<RunSession> runList = new ArrayList<>();
+
+	private float fitnessScore;
 
 	public float getLength() {
 		return length;
@@ -39,18 +42,28 @@ public class UserInfo {
 		this.length = length;
 		this.weight = weight;
 		this.age = age;
+
+		this.fitnessScore = 0;
 		runList = new ArrayList<>();
 	}
 
-	public float getFitnessScore() {
+	public String getFitnessScore() {
 
 		// If the user haven't run anything yet, their fitnessScore should return as
 		// zero.
 		if (runList.isEmpty()) {
-			return 0;
+			return "0";
 		}
 
-		return 0;
+		fitnessScore = (fitnessScore
+				+ (getLatestRunSession().getDistance()
+						+ Float.parseFloat(getLatestRunSession().getAverageSpeedPerHour())
+								/ Float.parseFloat(getLatestRunSession().getMinutesPerKilometer()))
+				- (daysSinceLastRun() / 2));
+
+		DecimalFormat decimalFormat = new DecimalFormat();
+		decimalFormat.setMaximumFractionDigits(2);
+		return decimalFormat.format(fitnessScore);
 	}
 
 	public int getRunSessionsAmount() {
@@ -79,8 +92,33 @@ public class UserInfo {
 		return Math.toIntExact(smallestDifference);
 	}
 
+	private RunSession getLatestRunSession() {
+		// If user doesn't have any runSessions saved, this function returns zero
+		if (runList.isEmpty()) {
+			return null;
+		}
+
+		RunSession temp = null;
+		// TODO: Look into moving this code to other function.
+		LocalDate today = LocalDate.now();
+		long smallestDifference = Long.MAX_VALUE;
+
+		for (RunSession runSession : runList) {
+
+			if (smallestDifference >= Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today))) {
+				smallestDifference = Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today));
+				temp = runSession;
+			}
+		}
+
+		// Possible loss in casting here, might want to make not of it for later.
+		return temp;
+	}
+
 	public void addRunSession(RunSession newRun) {
 		runList.add(newRun);
+
+		// TODO: Display the fitness score
 	}
 
 }

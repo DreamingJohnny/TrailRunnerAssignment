@@ -63,7 +63,6 @@ public class UserInfoTest {
 
 		expectedValue = 4;
 
-
 		// TODO: Look @ moving these rounds to separate function or script, similar to
 		// parameterized.
 		userInfo.addRunSession(new RunSession(LocalDate.of(2024, 12, 28), 7, id, 4500));
@@ -71,7 +70,8 @@ public class UserInfoTest {
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 3), 7, id, 4700));
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 6), 8, id, 4500));
 
-		//TODO: If time, would like to test this test several times to see if it really works.
+		// TODO: If time, would like to test this test several times to see if it really
+		// works.
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
 
@@ -81,9 +81,12 @@ public class UserInfoTest {
 	/* Går det att få ut ett korrekt fitness score? */
 	@Test
 	public void getCorrectFitnessScore() {
-		expectedValue = 0;
 
-		assertEquals(expectedValue, userInfo.getFitnessScore());
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
+
+		String expectedString = "10.67";
+
+		assertEquals(expectedString, userInfo.getFitnessScore());
 	}
 
 	/* Kan fitness score vara lägre än noll? */
