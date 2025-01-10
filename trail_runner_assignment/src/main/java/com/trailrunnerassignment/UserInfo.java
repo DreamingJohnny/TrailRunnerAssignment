@@ -44,6 +44,7 @@ public class UserInfo {
 		this.age = age;
 
 		this.fitnessScore = 0;
+
 		runList = new ArrayList<>();
 	}
 
@@ -127,4 +128,11 @@ public class UserInfo {
 		// TODO: Display the fitness score
 	}
 
+	public Float getAverageTotalDistanceRun() {
+		return 10f;
+	}
+
+	public Float getAverageDistanceOfRunSession() {
+		return 10f;
+	}
 }

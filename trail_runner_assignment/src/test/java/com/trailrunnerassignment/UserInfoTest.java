@@ -14,7 +14,9 @@ public class UserInfoTest {
 	public UserInfo userInfo;
 	private float length;
 	private float weight;
-	private int age;
+
+	private int age = 30;
+	private String id;
 
 	// Standin values for testRunSession
 	public RunSession runSession;
@@ -100,4 +102,28 @@ public class UserInfoTest {
 		assertEquals(expectedAnswer, userInfo.getFitnessScore());
 	}
 
+}
+
+		// So, here I'll want to begin by sending in a run with a date then, and then
+		// check so that it sets it correctly then
+		userInfo.addRunSession(new RunSession(date, distance, id, time));
+
+		assertEquals(expectedValue, userInfo.daysSinceLastRun());
+	}
+
+	/* Totala distansen för ens sparade löprundor */
+	@Test
+	public void shouldShowTotalDistanceRun() {
+
+		expectedValue = 10;
+		assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
+	}
+
+	/* Medeldistansen för ens sparade löprundor */
+	@Test
+	public void shouldShowAverageDistanceOfRunSession() {
+		expectedValue = 10f;
+
+		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
+	}
 }
