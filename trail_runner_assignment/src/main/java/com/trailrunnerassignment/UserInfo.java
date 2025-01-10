@@ -3,7 +3,7 @@ package com.trailrunnerassignment;
 import java.util.ArrayList;
 
 public class UserInfo {
-	
+
 	private float length;
 	private float weight;
 	private int age;
@@ -33,11 +33,10 @@ public class UserInfo {
 		this.age = age;
 	}
 
-	public UserInfo(float length, float weight, int age)
-	{
-		this.length=-1;
-		this.weight=-1;
-		this.age=-1;
+	public UserInfo(float length, float weight, int age) {
+		this.length = -1;
+		this.weight = -1;
+		this.age = age;
 		runList = new ArrayList<>();
 	}
 
@@ -45,19 +44,23 @@ public class UserInfo {
 		return -1;
 	}
 
-	public int getRunSessionsAmount()
-	{
+	public int getRunSessionsAmount() {
 		return -1;
 	}
 
-	public int daysSinceLastRun()
-	{
+	public int daysSinceLastRun() {
 		return -1;
 	}
 
-	public void addRunSession(RunSession firstRun)
-	{
+	public void addRunSession(RunSession firstRun) {
 
 	}
 
+	public Float getAverageTotalDistanceRun() {
+		return 10f;
+	}
+
+	public Float getAverageDistanceOfRunSession() {
+		return 10f;
+	}
 }

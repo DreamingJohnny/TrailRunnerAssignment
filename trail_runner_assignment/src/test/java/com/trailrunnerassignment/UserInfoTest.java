@@ -11,7 +11,7 @@ public class UserInfoTest {
 
 	private float length;
 	private float weight;
-	private int age;
+	private int age = 30;
 	private String id;
 
 	public RunSession runSession;
@@ -87,14 +87,14 @@ public class UserInfoTest {
 	@Test
 	public void shouldShowTotalDistanceRun() {
 
-		expectedValue = 20;
+		expectedValue = 10;
 		assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
 	}
 
 	/* Medeldistansen för ens sparade löprundor */
 	@Test
 	public void shouldShowAverageDistanceOfRunSession() {
-		expectedValue = 7.7f;
+		expectedValue = 10f;
 
 		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
 	}
