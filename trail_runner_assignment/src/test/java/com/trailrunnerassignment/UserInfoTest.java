@@ -24,6 +24,7 @@ public class UserInfoTest {
 	private String id;
 
 	private float expectedValue;
+	private String expectedAnswer;
 
 	/*
 	 * Går det att skapa en användare med korrekt uppgifter?
@@ -38,12 +39,12 @@ public class UserInfoTest {
 	/* Innan första löprundan är fitness score noll? */
 	@Test
 	public void fitnessScoreZeroAtStart() {
-		expectedValue = 0;
+		expectedAnswer = "0.00";
 
 		assumeTrue(userInfo.getRunSessionsAmount() == 0,
 				"Test cannot run if the user has one or more running sessions logged already.");
 
-		assertEquals(expectedValue, userInfo.getFitnessScore());
+		assertEquals(expectedAnswer, userInfo.getFitnessScore());
 	}
 
 	/* Innan första löprundan, är dagar sen senaste löpturen noll? */
@@ -92,9 +93,11 @@ public class UserInfoTest {
 	/* Kan fitness score vara lägre än noll? */
 	@Test
 	public void fitnessScoreNeverBelowZero() {
-		expectedValue = 0;
+		expectedAnswer = "0.00";
 
-		assertEquals(expectedValue, userInfo.getFitnessScore());
+		userInfo.addRunSession(new RunSession(LocalDate.of(2023, 1, 8), 10, id, 3600));
+
+		assertEquals(expectedAnswer, userInfo.getFitnessScore());
 	}
 
 }

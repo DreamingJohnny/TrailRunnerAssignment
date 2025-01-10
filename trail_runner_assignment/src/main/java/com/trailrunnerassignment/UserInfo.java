@@ -52,7 +52,7 @@ public class UserInfo {
 		// If the user haven't run anything yet, their fitnessScore should return as
 		// zero.
 		if (runList.isEmpty()) {
-			return "0";
+			return "0.00";
 		}
 
 		fitnessScore = (fitnessScore
@@ -61,13 +61,19 @@ public class UserInfo {
 								/ Float.parseFloat(getLatestRunSession().getMinutesPerKilometer()))
 				- (daysSinceLastRun() / 2));
 
+		// Sets fitnessScore to be the highest of two values, so if value is less than
+		// 0, it is set to zero.
+		fitnessScore = Math.max(fitnessScore, 0.00f);
+
+		// Ensures the answer is a string that always has two decimals
 		DecimalFormat decimalFormat = new DecimalFormat();
 		decimalFormat.setMaximumFractionDigits(2);
+		decimalFormat.setMinimumFractionDigits(2);
 		return decimalFormat.format(fitnessScore);
 	}
 
 	public int getRunSessionsAmount() {
-		return 0;
+		return runList.size();
 	}
 
 	public int daysSinceLastRun() {
