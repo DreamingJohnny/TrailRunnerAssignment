@@ -2,7 +2,6 @@ package com.trailrunnerassignment;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class RunSession {
 	// TODO: This probably needs a constructor for converting meters and such back
@@ -13,7 +12,7 @@ public class RunSession {
 	private Duration time;
 	// TODO: This needs to be changed to be a var for handling dates, pretty sure
 	// there is one of those already.
-	private String date;
+	private LocalDate date;
 
 	// TODO: This needs to be unique in some way.
 	private String id;
@@ -41,11 +40,12 @@ public class RunSession {
 		this.time = Duration.ofSeconds(_time);
 	}
 
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
+		//TODO: Add an overload here that takes a String and tries to format it as well.
 		this.date = date;
 	}
 
@@ -57,18 +57,16 @@ public class RunSession {
 		this.id = id;
 	}
 
-	public RunSession(String date, float distance, String id, int time) {
+	public RunSession(LocalDate date, float distance, String id, int time) {
 		this.date = date;
 		this.distance = distance;
 		this.id = id;
 		this.time = Duration.ofSeconds(time);
-		
+
 	}
 
 	public RunSession(float distance, String id, int time) {
-		LocalDate tempDate = LocalDate.now();
-		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		this.date = tempDate.format(myFormatObj);
+		this.date = LocalDate.now();
 
 		this.distance = distance;
 		this.id = id;

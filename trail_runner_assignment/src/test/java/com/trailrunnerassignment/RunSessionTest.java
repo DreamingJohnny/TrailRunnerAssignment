@@ -15,13 +15,15 @@ public class RunSessionTest {
 	// TODO: These really needs to be remade to be in better formats.
 	private float distance = 10;
 	private int time = 3600;
-	private String date;
+	private LocalDate date;
 	private String id;
 	private String todaysDate;
 	private String expectedTime = "1:00:00";
 
 	@BeforeEach
 	public void setup() {
+
+		date = LocalDate.now();
 		runSession = new RunSession(date, distance, id, time);
 	}
 
