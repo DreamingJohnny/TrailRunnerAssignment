@@ -53,6 +53,7 @@ public class RunSession {
 		return id;
 	}
 
+	//TODO: This function will need to be reworked so that the unique id is set some other way.
 	public void setId(String id) {
 		this.id = id;
 	}
