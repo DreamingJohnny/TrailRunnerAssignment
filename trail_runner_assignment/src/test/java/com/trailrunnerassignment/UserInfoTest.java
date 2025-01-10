@@ -11,7 +11,7 @@ public class UserInfoTest {
 
 	private float length;
 	private float weight;
-	private int age;
+	private int age = 30;
 	private String id;
 
 	public RunSession runSession;
@@ -29,7 +29,7 @@ public class UserInfoTest {
 	public void setup() {
 		userInfo = new UserInfo(length, weight, age);
 
-		assertEquals(age,userInfo.getAge());
+		assertEquals(age, userInfo.getAge());
 	}
 
 	/* Går det att få ut ett korrekt fitness score? */
@@ -78,8 +78,24 @@ public class UserInfoTest {
 
 		// So, here I'll want to begin by sending in a run with a date then, and then
 		// check so that it sets it correctly then
-		userInfo.addRunSession(new RunSession(date,distance,id,time));
-		
+		userInfo.addRunSession(new RunSession(date, distance, id, time));
+
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
+	}
+
+	/* Totala distansen för ens sparade löprundor */
+	@Test
+	public void shouldShowTotalDistanceRun() {
+
+		expectedValue = 10;
+		assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
+	}
+
+	/* Medeldistansen för ens sparade löprundor */
+	@Test
+	public void shouldShowAverageDistanceOfRunSession() {
+		expectedValue = 10f;
+
+		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
 	}
 }
