@@ -10,8 +10,9 @@ public class UserInfo {
 	private float length;
 	private float weight;
 	private int age;
-	private ArrayList<RunSession> runList = new ArrayList<>();
+	//private ArrayList<RunSession> runList = new ArrayList<>();
 
+	private RunSessionManager runSessionManager = new RunSessionManager();
 	private float fitnessScore;
 
 	public float getLength() {
