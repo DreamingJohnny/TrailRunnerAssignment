@@ -14,9 +14,7 @@ public class UserInfoTest {
 	public UserInfo userInfo;
 	private float length;
 	private float weight;
-
 	private int age = 30;
-	private String id;
 
 	// Standin values for testRunSession
 	public RunSession runSession;
@@ -78,9 +76,6 @@ public class UserInfoTest {
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
 
-	// I moved these tests to last since it seemed to be quite complicated, and also
-	// dependant on functions that several of the other tests are already made to
-	// check.
 	/* Går det att få ut ett korrekt fitness score? */
 	@Test
 	public void getCorrectFitnessScore() {
@@ -102,11 +97,11 @@ public class UserInfoTest {
 		assertEquals(expectedAnswer, userInfo.getFitnessScore());
 	}
 
-}
+	@Test
+	public void shouldShowDaysSinceLatRun() {
 
-		// So, here I'll want to begin by sending in a run with a date then, and then
-		// check so that it sets it correctly then
-		userInfo.addRunSession(new RunSession(date, distance, id, time));
+		expectedValue = 3f;
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
 
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
@@ -115,14 +110,22 @@ public class UserInfoTest {
 	@Test
 	public void shouldShowTotalDistanceRun() {
 
-		expectedValue = 10;
-		assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
+		expectedValue = 20;
+
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 6), 10, id, 3600));
+
+		assertEquals(expectedValue, userInfo.getTotalDistanceRun());
 	}
 
 	/* Medeldistansen för ens sparade löprundor */
 	@Test
 	public void shouldShowAverageDistanceOfRunSession() {
 		expectedValue = 10f;
+
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 3), 10, id, 3600));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 5), 12, id, 3600));
+		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 8, id, 3600));
 
 		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
 	}
