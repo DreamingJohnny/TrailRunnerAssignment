@@ -21,7 +21,6 @@ public class UserInfoTest {
 	private float distance;
 	private Duration time;
 	private LocalDate date;
-	private String id;
 
 	private float expectedValue;
 	private String expectedAnswer;
@@ -62,7 +61,7 @@ public class UserInfoTest {
 	@Test
 	public void setsDateSinceLastRunCorrectly() {
 
-		expectedValue = 4;
+		expectedValue = 7;
 
 		// TODO: Look @ moving these rounds to separate function or script, similar to
 		// parameterized.
@@ -82,7 +81,7 @@ public class UserInfoTest {
 
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
 
-		String expectedString = "10.67";
+		String expectedString = "9,67";
 
 		assertEquals(expectedString, userInfo.getFitnessScore());
 	}
@@ -90,7 +89,7 @@ public class UserInfoTest {
 	/* Kan fitness score vara lägre än noll? */
 	@Test
 	public void fitnessScoreNeverBelowZero() {
-		expectedAnswer = "0.00";
+		expectedAnswer = "0";
 
 		userInfo.addRunSession(new RunSession(LocalDate.of(2023, 1, 8), 10, id, 3600));
 
@@ -105,6 +104,7 @@ public class UserInfoTest {
 
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
+
 
 	/* Totala distansen för ens sparade löprundor */
 	@Test

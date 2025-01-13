@@ -74,23 +74,23 @@ public class RunSession {
 		this.time = Duration.ofSeconds(time);
 	}
 
-	public String getAverageSpeedPerHour() {
+	public double getAverageSpeedPerHour() {
 
 		double hours = time.toSeconds() / 3600.0;
 
 		double temp = distance / hours;
 
-		String answer = String.format("%.2f", temp);
-		return answer;
+		//String answer = String.format("%.2f", temp);
+		return temp;
 	}
 
-	public String getMinutesPerKilometer() {
+	public double getMinutesPerKilometer() {
 		double minutes = time.toSeconds() / 60.0;
 
 		double temp = minutes / distance;
 
-		String answer = String.format("%.2f", temp);
-		return answer;
+		//String answer = String.format("%.2f", temp);
+		return temp;
 	}
 
 	public float todaysDate() {

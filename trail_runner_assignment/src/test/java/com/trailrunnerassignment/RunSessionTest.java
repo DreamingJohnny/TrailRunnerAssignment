@@ -40,13 +40,13 @@ public class RunSessionTest {
 
 	@Test
 	public void hasCorrectAverageSpeedPerHour() {
-		String expectedValue = "10,00";
+		double expectedValue = 10.0;
 		assertEquals(expectedValue, runSession.getAverageSpeedPerHour());
 	}
 
 	@Test
 	public void hasCorrectMinutesPerKilometer() {
-		String expectedValue = "6,00";
+		double expectedValue = 6.0;
 		assertEquals(expectedValue, runSession.getMinutesPerKilometer());
 	}
 
@@ -54,11 +54,11 @@ public class RunSessionTest {
 	public void shouldSetTodaysDate() {
 		runSession = new RunSession(distance, id, time);
 		LocalDate tempDate = LocalDate.now();
-		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		todaysDate = tempDate.format(myFormatObj);
 
 		assertTrue(runSession != null);
 
-		assertEquals(todaysDate, runSession.getDate());
+		assertEquals(LocalDate.now(), runSession.getDate());
 	}
 }
