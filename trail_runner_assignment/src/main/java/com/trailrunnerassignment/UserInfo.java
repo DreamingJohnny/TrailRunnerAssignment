@@ -122,5 +122,26 @@ public class UserInfo {
 
 		// TODO: Display the fitness score
 	}
+	public Float getTotalDistanceRun() {
 
+		if (runList.isEmpty()) {
+			return 0.00f;
+		}
+
+		float totalDistance = 0.00f;
+
+		for (RunSession runSession : runList) {
+			totalDistance += runSession.getDistance();
+		}
+
+		return totalDistance;
+	}
+
+	public Float getAverageDistanceOfRunSession() {
+		if (runList.isEmpty()) {
+			return 0.00f;
+		}
+
+		return getTotalDistanceRun() / runList.size();
+	}
 }
