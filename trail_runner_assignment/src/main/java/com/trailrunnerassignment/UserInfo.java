@@ -1,18 +1,14 @@
 package com.trailrunnerassignment;
 
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 
 public class UserInfo {
 
 	private float length;
 	private float weight;
 	private int age;
-	// private ArrayList<RunSession> runList = new ArrayList<>();
 
-	private RunSessionManager runSessionManager;
+	private final RunSessionManager runSessionManager;
 	private double fitnessScore;
 
 	public float getLength() {
@@ -46,7 +42,6 @@ public class UserInfo {
 
 		this.fitnessScore = 0;
 		runSessionManager = new RunSessionManager();
-		// runList = new ArrayList<>();
 	}
 
 	public String getFitnessScore() {
@@ -67,7 +62,6 @@ public class UserInfo {
 		DecimalFormat decimalFormat = new DecimalFormat();
 		decimalFormat.setMaximumFractionDigits(2);
 		return decimalFormat.format(fitnessScore);
-		// return "10.67";
 	}
 
 	public int getRunSessionsAmount() {
@@ -81,7 +75,6 @@ public class UserInfo {
 
 	private RunSession getLatestRunSession() {
 		return runSessionManager.getLastestRunSession();
-		
 	}
 
 	public void addRunSession(RunSession newRun) {

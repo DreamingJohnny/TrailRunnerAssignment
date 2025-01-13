@@ -1,7 +1,6 @@
 package com.trailrunnerassignment;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,13 +11,10 @@ public class RunSessionTest {
 
 	private RunSession runSession;
 
-	// TODO: These really needs to be remade to be in better formats.
-	private float distance = 10;
-	private int time = 3600;
+	private final float distance = 10;
+	private final int time = 3600;
 	private LocalDate date;
-	private int id;
-	private String todaysDate;
-	private String expectedTime = "1:00:00";
+	private final String expectedTime = "1:00:00";
 
 	@BeforeEach
 	public void setup() {
@@ -34,8 +30,6 @@ public class RunSessionTest {
 		assertEquals(expectedTime, runSession.getTime());
 
 		assertEquals(date, runSession.getDate());
-
-		// TODO: Check so it has the correct userId here also.
 	}
 
 	@Test
@@ -53,9 +47,6 @@ public class RunSessionTest {
 	@Test
 	public void shouldSetTodaysDate() {
 		runSession = new RunSession(distance,time);
-		LocalDate tempDate = LocalDate.now();
-		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		todaysDate = tempDate.format(myFormatObj);
 
 		assertTrue(runSession != null);
 

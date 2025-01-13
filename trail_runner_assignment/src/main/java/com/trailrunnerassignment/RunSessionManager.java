@@ -41,7 +41,6 @@ public class RunSessionManager {
 			return 0;
 		}
 
-		// TODO: Look into moving this code to other function.
 		LocalDate today = LocalDate.now();
 		long smallestDifference = Long.MAX_VALUE;
 
@@ -66,7 +65,6 @@ public class RunSessionManager {
 		}
 
 		RunSession temp = null;
-		// TODO: Look into moving this code to other function.
 		LocalDate today = LocalDate.now();
 		long smallestDifference = Long.MAX_VALUE;
 
@@ -107,12 +105,12 @@ public class RunSessionManager {
 
 		return getTotalDistanceRun() / runSessions.size();
 	}
-	public int getNumberOfRuns()
-	{
+
+	public int getNumberOfRuns() {
 		return runSessions.size();
 	}
-	public Set<Integer> getSetOfIds()
-	{
+
+	public Set<Integer> getSetOfIds() {
 		if (isHashMapEmpty()) {
 			return null;
 		}

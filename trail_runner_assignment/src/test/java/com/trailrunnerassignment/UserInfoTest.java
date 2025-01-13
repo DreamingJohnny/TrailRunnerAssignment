@@ -1,6 +1,5 @@
 package com.trailrunnerassignment;
 
-import java.time.Duration;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,14 +13,10 @@ public class UserInfoTest {
 	public UserInfo userInfo;
 	private float length;
 	private float weight;
-	private int age = 30;
+	private final int age = 30;
 
 	// Standin values for testRunSession
 	public RunSession runSession;
-	private float distance;
-	private Duration time;
-	private LocalDate date;
-	private int id;
 
 	private float expectedValue;
 	private String expectedAnswer;
