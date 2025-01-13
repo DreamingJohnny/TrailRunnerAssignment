@@ -15,6 +15,7 @@ public class UserInfoTest {
 	private float length;
 	private float weight;
 	private int age = 30;
+	private String id;
 
 	// Standin values for testRunSession
 	public RunSession runSession;
@@ -99,7 +100,7 @@ public class UserInfoTest {
 	@Test
 	public void shouldShowDaysSinceLatRun() {
 
-		expectedValue = 3f;
+		expectedValue = 5f;
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
 
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
