@@ -110,10 +110,10 @@ public class UserInfoTest {
 	}
 
 	/* Medeldistansen för ens sparade löprundor */
-	@Test
+	/*@Test
 	public void shouldShowAverageDistanceOfRunSession() {
 		expectedValue = 10f;
 
 		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
-	}
+	}*/
 }

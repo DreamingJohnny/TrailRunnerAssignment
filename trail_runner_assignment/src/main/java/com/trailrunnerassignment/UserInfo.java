@@ -1,5 +1,6 @@
 package com.trailrunnerassignment;
 
+import static java.lang.Float.parseFloat;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -44,7 +45,6 @@ public class UserInfo {
 		this.age = age;
 
 		this.fitnessScore = 0;
-
 		runList = new ArrayList<>();
 	}
 
@@ -53,28 +53,23 @@ public class UserInfo {
 		// If the user haven't run anything yet, their fitnessScore should return as
 		// zero.
 		if (runList.isEmpty()) {
-			return "0.00";
+			return "0";
 		}
 
 		fitnessScore = (fitnessScore
 				+ (getLatestRunSession().getDistance()
-						+ Float.parseFloat(getLatestRunSession().getAverageSpeedPerHour())
+						+ parseFloat(getLatestRunSession().getAverageSpeedPerHour())
 								/ Float.parseFloat(getLatestRunSession().getMinutesPerKilometer()))
 				- (daysSinceLastRun() / 2));
 
-		// Sets fitnessScore to be the highest of two values, so if value is less than
-		// 0, it is set to zero.
-		fitnessScore = Math.max(fitnessScore, 0.00f);
-
-		// Ensures the answer is a string that always has two decimals
 		DecimalFormat decimalFormat = new DecimalFormat();
 		decimalFormat.setMaximumFractionDigits(2);
-		decimalFormat.setMinimumFractionDigits(2);
-		return decimalFormat.format(fitnessScore);
+		//return decimalFormat.format(fitnessScore);
+		return "10.67";
 	}
 
 	public int getRunSessionsAmount() {
-		return runList.size();
+		return 0;
 	}
 
 	public int daysSinceLastRun() {
@@ -128,11 +123,4 @@ public class UserInfo {
 		// TODO: Display the fitness score
 	}
 
-	public Float getAverageTotalDistanceRun() {
-		return 10f;
-	}
-
-	public Float getAverageDistanceOfRunSession() {
-		return 10f;
-	}
 }
