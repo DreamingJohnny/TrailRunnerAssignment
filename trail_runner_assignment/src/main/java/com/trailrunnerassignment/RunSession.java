@@ -58,19 +58,17 @@ public class RunSession {
 		this.id = id;
 	}
 
-	public RunSession(LocalDate date, float distance, int id, int time) {
+	public RunSession(LocalDate date, float distance,int time) {
 		this.date = date;
 		this.distance = distance;
-		this.id = id;
 		this.time = Duration.ofSeconds(time);
 
 	}
 
-	public RunSession(float distance, int id, int time) {
+	public RunSession(float distance,int time) {
 		this.date = LocalDate.now();
 
 		this.distance = distance;
-		this.id = id;
 		this.time = Duration.ofSeconds(time);
 	}
 

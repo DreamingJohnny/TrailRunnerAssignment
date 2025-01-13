@@ -107,4 +107,15 @@ public class RunSessionManager {
 
 		return getTotalDistanceRun() / runSessions.size();
 	}
+	public int getNumberOfRuns()
+	{
+		return runSessions.size();
+	}
+	public Set<Integer> getSetOfIds()
+	{
+		if (isHashMapEmpty()) {
+			return null;
+		}
+		return runSessions.keySet();
+	}
 }

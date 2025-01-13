@@ -24,7 +24,7 @@ public class RunSessionTest {
 	public void setup() {
 
 		date = LocalDate.now();
-		runSession = new RunSession(date, distance, id, time);
+		runSession = new RunSession(date, distance,time);
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class RunSessionTest {
 
 	@Test
 	public void shouldSetTodaysDate() {
-		runSession = new RunSession(distance, id, time);
+		runSession = new RunSession(distance,time);
 		LocalDate tempDate = LocalDate.now();
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		todaysDate = tempDate.format(myFormatObj);
