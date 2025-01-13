@@ -54,7 +54,13 @@ public class TrailRunner {
 	private void showStatsMenu(UserInfo userInfo) {
 
 		System.out.println("Ålder:   " + userInfo.getAge());
-		System.out.println("Längd:   " + userInfo.getAge());
+		System.out.println("Längd:   " + userInfo.getLength());
+		System.out.println("Vikt:   " + userInfo.getWeight());
+		
+		System.out.println();
+
+		System.out.println();
+
 
 	}
 

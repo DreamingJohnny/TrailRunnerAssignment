@@ -38,7 +38,7 @@ testRunsesSessionManager.deleteRunSession(temp);
 int runs = testRunsesSessionManager.getNumberOfRuns();
    assertEquals(2, runs);
 }
-
+//Om det här testet failar så behöver du updatera expected till mellen skillnaden mellan datumet som sparat och dagens datum
 @Test
 public void canGetDaySinceLastRun()
 {
