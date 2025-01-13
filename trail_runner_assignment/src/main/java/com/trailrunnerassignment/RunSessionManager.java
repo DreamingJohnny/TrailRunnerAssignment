@@ -9,5 +9,9 @@ public class RunSessionManager {
 
 	//Radera en löprunda via id nummer.
 
+	//returnerar senaste runsessionen
+
+	//sök runsession
+
 	
 }
