@@ -86,7 +86,7 @@ public class UserInfoTest {
 
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 8), 10, id, 3600));
 
-		String expectedString = "9.67";
+		String expectedString = "9,67";
 
 		assertEquals(expectedString, userInfo.getFitnessScore());
 	}
