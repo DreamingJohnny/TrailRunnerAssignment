@@ -1,6 +1,5 @@
 package com.trailrunnerassignment;
 
-import static java.lang.Float.parseFloat;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -13,7 +12,7 @@ public class UserInfo {
 	private int age;
 	private ArrayList<RunSession> runList = new ArrayList<>();
 
-	private float fitnessScore;
+	private double fitnessScore;
 
 	public float getLength() {
 		return length;
@@ -53,19 +52,20 @@ public class UserInfo {
 		// If the user haven't run anything yet, their fitnessScore should return as
 		// zero.
 		if (runList.isEmpty()) {
-			return "0";
+			return "0.00";
 		}
 
 		fitnessScore = (fitnessScore
 				+ (getLatestRunSession().getDistance()
-						+ parseFloat(getLatestRunSession().getAverageSpeedPerHour())
-								/ Float.parseFloat(getLatestRunSession().getMinutesPerKilometer()))
+						+ getLatestRunSession().getAverageSpeedPerHour()
+								/ getLatestRunSession().getMinutesPerKilometer())
 				- (daysSinceLastRun() / 2));
 
+		fitnessScore = Math.max(fitnessScore, 0.00f);
 		DecimalFormat decimalFormat = new DecimalFormat();
 		decimalFormat.setMaximumFractionDigits(2);
-		//return decimalFormat.format(fitnessScore);
-		return "10.67";
+		return decimalFormat.format(fitnessScore);
+		// return "10.67";
 	}
 
 	public int getRunSessionsAmount() {

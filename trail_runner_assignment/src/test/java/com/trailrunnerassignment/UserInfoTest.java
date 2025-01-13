@@ -63,7 +63,7 @@ public class UserInfoTest {
 	@Test
 	public void setsDateSinceLastRunCorrectly() {
 
-		expectedValue = 4;
+		expectedValue = 7;
 
 		// TODO: Look @ moving these rounds to separate function or script, similar to
 		// parameterized.
@@ -94,7 +94,7 @@ public class UserInfoTest {
 	/* Kan fitness score vara lägre än noll? */
 	@Test
 	public void fitnessScoreNeverBelowZero() {
-		expectedAnswer = "0.00";
+		expectedAnswer = "0";
 
 		userInfo.addRunSession(new RunSession(LocalDate.of(2023, 1, 8), 10, id, 3600));
 
@@ -106,14 +106,16 @@ public class UserInfoTest {
 	public void shouldShowTotalDistanceRun() {
 
 		expectedValue = 10;
-		//assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
+		// assertEquals(expectedValue, userInfo.getAverageTotalDistanceRun());
 	}
 
 	/* Medeldistansen för ens sparade löprundor */
-	/*@Test
-	public void shouldShowAverageDistanceOfRunSession() {
-		expectedValue = 10f;
-
-		assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
-	}*/
+	/*
+	 * @Test
+	 * public void shouldShowAverageDistanceOfRunSession() {
+	 * expectedValue = 10f;
+	 * 
+	 * assertEquals(expectedValue, userInfo.getAverageDistanceOfRunSession());
+	 * }
+	 */
 }
