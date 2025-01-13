@@ -15,7 +15,7 @@ public class RunSession {
 	private LocalDate date;
 
 	// TODO: This needs to be unique in some way.
-	private String id;
+	private int id;
 
 	// TODO: Will need at least two constructors, one for if you don't supply the
 	// date
@@ -49,16 +49,16 @@ public class RunSession {
 		this.date = date;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	//TODO: This function will need to be reworked so that the unique id is set some other way.
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public RunSession(LocalDate date, float distance, String id, int time) {
+	public RunSession(LocalDate date, float distance, int id, int time) {
 		this.date = date;
 		this.distance = distance;
 		this.id = id;
@@ -66,7 +66,7 @@ public class RunSession {
 
 	}
 
-	public RunSession(float distance, String id, int time) {
+	public RunSession(float distance, int id, int time) {
 		this.date = LocalDate.now();
 
 		this.distance = distance;

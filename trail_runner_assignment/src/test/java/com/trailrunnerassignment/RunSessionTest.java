@@ -16,7 +16,7 @@ public class RunSessionTest {
 	private float distance = 10;
 	private int time = 3600;
 	private LocalDate date;
-	private String id;
+	private int id;
 	private String todaysDate;
 	private String expectedTime = "1:00:00";
 

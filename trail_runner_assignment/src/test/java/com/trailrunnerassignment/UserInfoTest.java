@@ -15,13 +15,13 @@ public class UserInfoTest {
 	private float length;
 	private float weight;
 	private int age = 30;
-	private String id;
 
 	// Standin values for testRunSession
 	public RunSession runSession;
 	private float distance;
 	private Duration time;
 	private LocalDate date;
+	private int id;
 
 	private float expectedValue;
 	private String expectedAnswer;
@@ -105,7 +105,6 @@ public class UserInfoTest {
 
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
-
 
 	/* Totala distansen för ens sparade löprundor */
 	@Test
