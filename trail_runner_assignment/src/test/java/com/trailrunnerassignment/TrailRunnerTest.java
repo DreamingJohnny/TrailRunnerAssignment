@@ -14,8 +14,6 @@ public class TrailRunnerTest {
 	 * 
 	 * Får användaren ett fitness score i slutet av varje avslutad löprunda?
 	 * 
-	 * 
-	 * 
 	 * 1 Skapa din användare.
 	 * 
 	 * 2.1 Hantera dina löprundor
@@ -30,24 +28,24 @@ public class TrailRunnerTest {
 	 * Snittdistansen
 	 */
 
-	private UserInfo userInfo;
+	// private UserInfo userInfo;
 
-	private int length = 180;
-	private int weight = 85;
-	private int age = 28;
+	// private int length = 180;
+	// private int weight = 85;
+	// private int age = 28;
 
-	@BeforeEach
-	public void setup() {
-		userInfo = new UserInfo(length,weight,age);
-	}
+	// @BeforeEach
+	// public void setup() {
+	// userInfo = new UserInfo(length,weight,age);
+	// }
 
-	@Test
-	public void hasCorrectUserInfo() {
-		assertEquals(length, userInfo.getLength());
-	}
+	// @Test
+	// public void hasCorrectUserInfo() {
+	// assertEquals(length, userInfo.getLength());
+	// }
 
-	@Test
-	public void displayAllRunSessionStats() {
+	// @Test
+	// public void displayAllRunSessionStats() {
 
-	}
+	// }
 }

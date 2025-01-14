@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 trail_runner_assignment,com.trailrunnerassignment,UserInfo,15,97,0,2,7,27,4,11,4,10
 trail_runner_assignment,com.trailrunnerassignment,RunSessionManager,24,197,7,13,7,38,8,13,2,9
-trail_runner_assignment,com.trailrunnerassignment,TrailRunner,98,0,3,0,29,0,8,0,6,0
+trail_runner_assignment,com.trailrunnerassignment,TrailRunner,3,0,0,0,1,0,1,0,1,0
 trail_runner_assignment,com.trailrunnerassignment,RunSession,16,97,0,0,7,25,4,9,4,9
 trail_runner_assignment,com.trailrunnerassignment,App,7,0,0,0,3,0,2,0,2,0
