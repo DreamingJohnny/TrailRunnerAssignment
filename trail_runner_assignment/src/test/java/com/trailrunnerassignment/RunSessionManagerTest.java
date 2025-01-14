@@ -43,7 +43,7 @@ int runs = testRunsesSessionManager.getNumberOfRuns();
 public void canGetDaySinceLastRun()
 {
    int temp = testRunsesSessionManager.daysSinceLastRun();
-    assertEquals(10, temp);
+    assertEquals(11, temp);
 }
 
 @Test

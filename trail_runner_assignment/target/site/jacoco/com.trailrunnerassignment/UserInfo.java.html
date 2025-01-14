@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trail_runner_assignment</a> &gt; <a href="index.source.html" class="el_package">com.trailrunnerassignment</a> &gt; <span class="el_source">UserInfo.java</span></div><h1>UserInfo.java</h1><pre class="source lang-java linenums">package com.trailrunnerassignment;
+
+import java.text.DecimalFormat;
+
+public class UserInfo {
+
+	private float length;
+	private float weight;
+	private int age;
+
+	private final RunSessionManager runSessionManager;
+	private double fitnessScore;
+
+	public float getLength() {
+<span class="fc" id="L15">		return length;</span>
+	}
+
+	public void setLength(float length) {
+<span class="nc" id="L19">		this.length = length;</span>
+<span class="nc" id="L20">	}</span>
+
+	public float getWeight() {
+<span class="nc" id="L23">		return weight;</span>
+	}
+
+	public void setWeight(float weight) {
+<span class="nc" id="L27">		this.weight = weight;</span>
+<span class="nc" id="L28">	}</span>
+
+	public int getAge() {
+<span class="fc" id="L31">		return age;</span>
+	}
+
+	public void setAge(int age) {
+<span class="nc" id="L35">		this.age = age;</span>
+<span class="nc" id="L36">	}</span>
+
+<span class="fc" id="L38">	public UserInfo(float length, float weight, int age) {</span>
+<span class="fc" id="L39">		this.length = length;</span>
+<span class="fc" id="L40">		this.weight = weight;</span>
+<span class="fc" id="L41">		this.age = age;</span>
+
+<span class="fc" id="L43">		this.fitnessScore = 0;</span>
+<span class="fc" id="L44">		runSessionManager = new RunSessionManager();</span>
+<span class="fc" id="L45">	}</span>
+
+	public String getFitnessScore() {
+
+		// If the user haven't run anything yet, their fitnessScore should return as
+		// zero.
+<span class="fc bfc" id="L51" title="All 2 branches covered.">		if (runSessionManager.isHashMapEmpty()) {</span>
+<span class="fc" id="L52">			return &quot;0.00&quot;;</span>
+		}
+
+<span class="fc" id="L55">		fitnessScore = (fitnessScore</span>
+<span class="fc" id="L56">				+ (getLatestRunSession().getDistance()</span>
+<span class="fc" id="L57">						+ getLatestRunSession().getAverageSpeedPerHour()</span>
+<span class="fc" id="L58">								/ getLatestRunSession().getMinutesPerKilometer())</span>
+<span class="fc" id="L59">				- (daysSinceLastRun() / 2));</span>
+
+<span class="fc" id="L61">		fitnessScore = Math.max(fitnessScore, 0.00f);</span>
+<span class="fc" id="L62">		DecimalFormat decimalFormat = new DecimalFormat();</span>
+<span class="fc" id="L63">		decimalFormat.setMaximumFractionDigits(2);</span>
+<span class="fc" id="L64">		return decimalFormat.format(fitnessScore);</span>
+	}
+
+	public int getRunSessionsAmount() {
+<span class="fc" id="L68">		return 0;</span>
+	}
+
+	public int daysSinceLastRun() {
+
+<span class="fc" id="L73">		return runSessionManager.daysSinceLastRun();</span>
+	}
+
+	private RunSession getLatestRunSession() {
+<span class="fc" id="L77">		return runSessionManager.getLastestRunSession();</span>
+	}
+
+	public void addRunSession(RunSession newRun) {
+<span class="fc" id="L81">		runSessionManager.addRunSession(newRun);</span>
+
+		// TODO: Display the fitness score
+<span class="fc" id="L84">	}</span>
+
+	public Float getTotalDistanceRun() {
+
+<span class="fc" id="L88">		return runSessionManager.getTotalDistanceRun();</span>
+	}
+
+	public Float getAverageDistanceOfRunSession() {
+<span class="fc" id="L92">		return runSessionManager.getAverageDistanceOfRunSession();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

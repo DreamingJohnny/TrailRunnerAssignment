@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RunSession.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trail_runner_assignment</a> &gt; <a href="index.source.html" class="el_package">com.trailrunnerassignment</a> &gt; <span class="el_source">RunSession.java</span></div><h1>RunSession.java</h1><pre class="source lang-java linenums">package com.trailrunnerassignment;
+
+import java.time.Duration;
+import java.time.LocalDate;
+
+public class RunSession {
+
+	private float distance;
+
+	private Duration time;
+
+	private LocalDate date;
+
+	private int id;
+
+	public float getDistance() {
+<span class="fc" id="L17">		return distance;</span>
+	}
+
+	public void setDistance(float distance) {
+<span class="nc" id="L21">		this.distance = distance;</span>
+<span class="nc" id="L22">	}</span>
+
+	public String getTime() {
+
+<span class="fc" id="L26">		return String.format(&quot;%d:%02d:%02d&quot;,</span>
+<span class="fc" id="L27">				time.toHours(),</span>
+<span class="fc" id="L28">				time.toMinutesPart(),</span>
+<span class="fc" id="L29">				time.toSecondsPart());</span>
+	}
+
+	public void setTime(int _time) {
+<span class="nc" id="L33">		this.time = Duration.ofSeconds(_time);</span>
+<span class="nc" id="L34">	}</span>
+
+	public LocalDate getDate() {
+<span class="fc" id="L37">		return date;</span>
+	}
+
+	public void setDate(LocalDate date) {
+<span class="nc" id="L41">		this.date = date;</span>
+<span class="nc" id="L42">	}</span>
+
+	public int getId() {
+<span class="fc" id="L45">		return id;</span>
+	}
+
+	public void setId(int id) {
+<span class="fc" id="L49">		this.id = id;</span>
+<span class="fc" id="L50">	}</span>
+
+<span class="fc" id="L52">	public RunSession(LocalDate date, float distance,int time) {</span>
+<span class="fc" id="L53">		this.date = date;</span>
+<span class="fc" id="L54">		this.distance = distance;</span>
+<span class="fc" id="L55">		this.time = Duration.ofSeconds(time);</span>
+
+<span class="fc" id="L57">	}</span>
+
+<span class="fc" id="L59">	public RunSession(float distance,int time) {</span>
+<span class="fc" id="L60">		this.date = LocalDate.now();</span>
+
+<span class="fc" id="L62">		this.distance = distance;</span>
+<span class="fc" id="L63">		this.time = Duration.ofSeconds(time);</span>
+<span class="fc" id="L64">	}</span>
+
+	public double getAverageSpeedPerHour() {
+
+<span class="fc" id="L68">		double hours = time.toSeconds() / 3600.0;</span>
+
+<span class="fc" id="L70">		double temp = distance / hours;</span>
+
+		//String answer = String.format(&quot;%.2f&quot;, temp);
+<span class="fc" id="L73">		return temp;</span>
+	}
+
+	public double getMinutesPerKilometer() {
+<span class="fc" id="L77">		double minutes = time.toSeconds() / 60.0;</span>
+
+<span class="fc" id="L79">		double temp = minutes / distance;</span>
+
+		//String answer = String.format(&quot;%.2f&quot;, temp);
+<span class="fc" id="L82">		return temp;</span>
+	}
+
+	public float todaysDate() {
+<span class="nc" id="L86">		return 0.0f;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
