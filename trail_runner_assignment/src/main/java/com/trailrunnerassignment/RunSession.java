@@ -4,21 +4,14 @@ import java.time.Duration;
 import java.time.LocalDate;
 
 public class RunSession {
-	// TODO: This probably needs a constructor for converting meters and such back
-	// and forth
+
 	private float distance;
-	// TODO: This should probably be replaced with some var that handles amount of
-	// time.
+
 	private Duration time;
-	// TODO: This needs to be changed to be a var for handling dates, pretty sure
-	// there is one of those already.
+
 	private LocalDate date;
 
-	// TODO: This needs to be unique in some way.
-	private String id;
-
-	// TODO: Will need at least two constructors, one for if you don't supply the
-	// date
+	private int id;
 
 	public float getDistance() {
 		return distance;
@@ -45,32 +38,28 @@ public class RunSession {
 	}
 
 	public void setDate(LocalDate date) {
-		//TODO: Add an overload here that takes a String and tries to format it as well.
 		this.date = date;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	//TODO: This function will need to be reworked so that the unique id is set some other way.
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public RunSession(LocalDate date, float distance, String id, int time) {
+	public RunSession(LocalDate date, float distance,int time) {
 		this.date = date;
 		this.distance = distance;
-		this.id = id;
 		this.time = Duration.ofSeconds(time);
 
 	}
 
-	public RunSession(float distance, String id, int time) {
+	public RunSession(float distance,int time) {
 		this.date = LocalDate.now();
 
 		this.distance = distance;
-		this.id = id;
 		this.time = Duration.ofSeconds(time);
 	}
 

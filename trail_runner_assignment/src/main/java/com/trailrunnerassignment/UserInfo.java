@@ -1,17 +1,14 @@
 package com.trailrunnerassignment;
 
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 
 public class UserInfo {
 
 	private float length;
 	private float weight;
 	private int age;
-	private ArrayList<RunSession> runList = new ArrayList<>();
 
+	private final RunSessionManager runSessionManager;
 	private double fitnessScore;
 
 	public float getLength() {
@@ -44,14 +41,14 @@ public class UserInfo {
 		this.age = age;
 
 		this.fitnessScore = 0;
-		runList = new ArrayList<>();
+		runSessionManager = new RunSessionManager();
 	}
 
 	public String getFitnessScore() {
 
 		// If the user haven't run anything yet, their fitnessScore should return as
 		// zero.
-		if (runList.isEmpty()) {
+		if (runSessionManager.isHashMapEmpty()) {
 			return "0.00";
 		}
 
@@ -65,7 +62,6 @@ public class UserInfo {
 		DecimalFormat decimalFormat = new DecimalFormat();
 		decimalFormat.setMaximumFractionDigits(2);
 		return decimalFormat.format(fitnessScore);
-		// return "10.67";
 	}
 
 	public int getRunSessionsAmount() {
@@ -74,74 +70,25 @@ public class UserInfo {
 
 	public int daysSinceLastRun() {
 
-		// If user doesn't have any runSessions saved, this function returns zero
-		if (runList.isEmpty()) {
-			return 0;
-		}
-
-		// TODO: Look into moving this code to other function.
-		LocalDate today = LocalDate.now();
-		long smallestDifference = Long.MAX_VALUE;
-
-		for (RunSession runSession : runList) {
-
-			if (smallestDifference >= Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today))) {
-				smallestDifference = Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today));
-			}
-		}
-
-		// Possible loss in casting here, might want to make not of it for later.
-		return Math.toIntExact(smallestDifference);
+		return runSessionManager.daysSinceLastRun();
 	}
 
 	private RunSession getLatestRunSession() {
-		// If user doesn't have any runSessions saved, this function returns zero
-		if (runList.isEmpty()) {
-			return null;
-		}
-
-		RunSession temp = null;
-		// TODO: Look into moving this code to other function.
-		LocalDate today = LocalDate.now();
-		long smallestDifference = Long.MAX_VALUE;
-
-		for (RunSession runSession : runList) {
-
-			if (smallestDifference >= Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today))) {
-				smallestDifference = Math.abs(ChronoUnit.DAYS.between(runSession.getDate(), today));
-				temp = runSession;
-			}
-		}
-
-		// Possible loss in casting here, might want to make not of it for later.
-		return temp;
+		return runSessionManager.getLastestRunSession();
 	}
 
 	public void addRunSession(RunSession newRun) {
-		runList.add(newRun);
+		runSessionManager.addRunSession(newRun);
 
 		// TODO: Display the fitness score
 	}
+
 	public Float getTotalDistanceRun() {
 
-		if (runList.isEmpty()) {
-			return 0.00f;
-		}
-
-		float totalDistance = 0.00f;
-
-		for (RunSession runSession : runList) {
-			totalDistance += runSession.getDistance();
-		}
-
-		return totalDistance;
+		return runSessionManager.getTotalDistanceRun();
 	}
 
 	public Float getAverageDistanceOfRunSession() {
-		if (runList.isEmpty()) {
-			return 0.00f;
-		}
-
-		return getTotalDistanceRun() / runList.size();
+		return runSessionManager.getAverageDistanceOfRunSession();
 	}
 }

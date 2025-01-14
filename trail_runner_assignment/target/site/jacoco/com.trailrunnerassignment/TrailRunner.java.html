@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrailRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trail_runner_assignment</a> &gt; <a href="index.source.html" class="el_package">com.trailrunnerassignment</a> &gt; <span class="el_source">TrailRunner.java</span></div><h1>TrailRunner.java</h1><pre class="source lang-java linenums">package com.trailrunnerassignment;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class TrailRunner {</span>
+
+	private Scanner myScanner;
+
+	private UserInfo userInfo;
+
+	public void Run() {
+
+<span class="nc" id="L13">		myScanner = new Scanner(System.in);</span>
+<span class="nc" id="L14">		userInfo = createUser();</span>
+
+<span class="nc" id="L16">		displayMainMenu(userInfo);</span>
+<span class="nc" id="L17">	}</span>
+
+	private UserInfo createUser() {
+
+<span class="nc" id="L21">		System.out.println(&quot;Whazzap! Hur lång är du?&quot;);</span>
+<span class="nc" id="L22">		int length = myScanner.nextInt();</span>
+
+<span class="nc" id="L24">		System.out.println(&quot;Whazzap! Hur mycket väger du?&quot;);</span>
+<span class="nc" id="L25">		int weight = myScanner.nextInt();</span>
+
+<span class="nc" id="L27">		System.out.println(&quot;Whazzap! Hur gammal är du?&quot;);</span>
+<span class="nc" id="L28">		int age = myScanner.nextInt();</span>
+
+<span class="nc" id="L30">		return new UserInfo(length, weight, age);</span>
+	}
+
+	private void displayMainMenu(UserInfo userInfo) {
+<span class="nc" id="L34">		while (true) {</span>
+
+<span class="nc" id="L36">			System.out.println(&quot;Vad vill du göra?&quot;);</span>
+<span class="nc" id="L37">			System.out.println(&quot;1. Dina stats?&quot;);</span>
+<span class="nc" id="L38">			System.out.println(&quot;2. Pilla på dina löprundor?&quot;);</span>
+
+<span class="nc bnc" id="L40" title="All 3 branches missed.">			switch (myScanner.nextInt()) {</span>
+				case 1:
+<span class="nc" id="L42">					showStatsMenu(userInfo);</span>
+<span class="nc" id="L43">					break;</span>
+				case 2:
+<span class="nc" id="L45">					showRunSessions(userInfo);</span>
+<span class="nc" id="L46">					break;</span>
+				default:
+<span class="nc" id="L48">					System.out.println(&quot;Jag förstod inte, välj igen!&quot;);</span>
+					break;
+			}
+		}
+	}
+
+	private void showStatsMenu(UserInfo userInfo) {
+
+<span class="nc" id="L56">		System.out.println(&quot;Ålder:   &quot; + userInfo.getAge());</span>
+<span class="nc" id="L57">		System.out.println(&quot;Längd:   &quot; + userInfo.getLength());</span>
+<span class="nc" id="L58">		System.out.println(&quot;Vikt:   &quot; + userInfo.getWeight());</span>
+		
+<span class="nc" id="L60">		System.out.println();</span>
+
+<span class="nc" id="L62">		System.out.println();</span>
+
+
+<span class="nc" id="L65">	}</span>
+
+	private void showRunSessions(UserInfo userInfo) {
+<span class="nc" id="L68">		throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

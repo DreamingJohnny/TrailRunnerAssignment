@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.trailrunnerassignment.RunSessionTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.074 s <<< FAILURE! - in com.trailrunnerassignment.RunSessionTest
-hasCorrectMinutesPerKilometer  Time elapsed: 0.04 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <6,00> but was: <6.00>
-	at com.trailrunnerassignment.RunSessionTest.hasCorrectMinutesPerKilometer(RunSessionTest.java:48)
-
-hasCorrectAverageSpeedPerHour  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <10,00> but was: <10.00>
-	at com.trailrunnerassignment.RunSessionTest.hasCorrectAverageSpeedPerHour(RunSessionTest.java:42)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.trailrunnerassignment.RunSessionTest
