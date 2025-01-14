@@ -79,8 +79,6 @@ public class UserInfo {
 
 	public void addRunSession(RunSession newRun) {
 		runSessionManager.addRunSession(newRun);
-
-		// TODO: Display the fitness score
 	}
 
 	public Float getTotalDistanceRun() {

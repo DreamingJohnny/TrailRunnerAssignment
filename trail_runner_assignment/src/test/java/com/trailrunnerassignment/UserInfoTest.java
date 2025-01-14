@@ -59,15 +59,11 @@ public class UserInfoTest {
 
 		expectedValue = 8;
 
-		// TODO: Look @ moving these rounds to separate function or script, similar to
-		// parameterized.
 		userInfo.addRunSession(new RunSession(LocalDate.of(2024, 12, 28), 7, 4500));
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 1), 6, 4400));
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 3), 7, 4700));
 		userInfo.addRunSession(new RunSession(LocalDate.of(2025, 1, 6), 8, 4500));
 
-		// TODO: If time, would like to test this test several times to see if it really
-		// works.
 		assertEquals(expectedValue, userInfo.daysSinceLastRun());
 	}
 

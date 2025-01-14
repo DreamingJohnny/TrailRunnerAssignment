@@ -69,7 +69,6 @@ public class RunSession {
 
 		double temp = distance / hours;
 
-		//String answer = String.format("%.2f", temp);
 		return temp;
 	}
 
@@ -78,7 +77,6 @@ public class RunSession {
 
 		double temp = minutes / distance;
 
-		//String answer = String.format("%.2f", temp);
 		return temp;
 	}
 
